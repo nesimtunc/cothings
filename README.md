@@ -16,11 +16,13 @@ You can checkout applications' designs from [here](https://github.com/rainlab-in
 
 Here's some screenshots that we use for our share-house's facility:
 
-![Lobby](https://github.com/rainlab-inc/coliving/blob/master/assets/static/images/app_lobby_v022.png "Lobby Overall")
+![Lobby](https://github.com/rainlab-inc/coliving/blob/master/assets/static/images/app_lobby_v04.png "Lobby Overall")
 
 Soon, there will be mobile clients to update the counters automatically using beacons.
 
 Here's our [iOS Application](https://github.com/rainlab-inc/coliving-ios)
+
+Here's our [Demo Web Site](https://demo-eu.cothings.app) for Europe.
 
 ## Contributions
 Any contributions are welcome. Here is some categories that you might help with:
@@ -28,6 +30,10 @@ Any contributions are welcome. Here is some categories that you might help with:
  - Frontend development
  - Backend development
  - Mobile apps development
+
+## Contact with the team
+ - info@cothings.app
+ - IRC channel on freenode.net #cothings
 
 ## Technical Information
 
@@ -46,7 +52,7 @@ Please always chekcout the latest release documentation for Phoenix from [here](
 
 **Phoenix:** `1.5.1`
 
-## Run as a Docker Container
+# Run as a Docker Container
 
 1. Create `.env` file in the root folder of the project or `mv .env.example .env` and set the environment variables as needed.
 Here's some explanation of some environment values.
@@ -65,6 +71,8 @@ Here's some explanation of some environment values.
     
     `LOG_ROOM_USAGE` let the application create room usage logs. Default: `false`
 
+    `APP_IMAGE_URL` You can setup an header image for your application. If not, we're going to use this [photo](https://unsplash.com/photos/qCjolcMFaLI) by [Daniel DiNuzzo @ddinuzzo](https://unsplash.com/@ddinuzzo) on [Unsplash](https://unsplash.com/).
+
 1. Update your database settings and persistent volume paths in `docker-compose.yml` file. You can keep track of bussiest days of the week and time of the day for the room usage.
 
 1. There are two ways to have the docker image:
@@ -80,6 +88,10 @@ Here's some explanation of some environment values.
 1. ⚠️ Once you've released and ran the app on production, you need to run migration. Run the following command.
 
 `docker exec -it {container_name} bash bin/coliving eval Coliving.Release.migrate`
+
+# Run with Kubernetes using Helm Charts
+
+Kubernetes deployments are supported, by using Helm. Chart can be found under [deployment/kubernetes/chart](deployment/kubernetes/chart).
 
 # Run in Local Environment (or for Development purpose)
 To run the project in your local:
